@@ -18,7 +18,7 @@ type Page struct {
 
 func internalServerError(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusInternalServerError)
-	t, _ := template.ParseFiles("templates/internalerror.html")
+	t, _ := template.ParseFiles("templates/500.html")
 	err := t.Execute(w, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -38,7 +38,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			r.ParseForm()
 			if !ValidAscii(r.Form.Get("input")) {
 				w.WriteHeader(http.StatusBadRequest)
-				t, err := template.ParseFiles("templates/badrequest.html")
+				t, err := template.ParseFiles("templates/400.html")
 				if err != nil {
 					internalServerError(w, r)
 				}
@@ -63,7 +63,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		}
 	} else {
 		w.WriteHeader(http.StatusNotFound)
-		t, err := template.ParseFiles("templates/notfound.html")
+		t, err := template.ParseFiles("templates/404.html")
 		if err != nil {
 			internalServerError(w, r)
 			return
