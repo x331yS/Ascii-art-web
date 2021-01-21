@@ -1,21 +1,24 @@
 package main
 
 import (
+	ascii "./AsciiArt"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 	"os/exec"
 	"runtime"
-
-	ascii "./AsciiArt"
 )
 
 type Page struct {
 	In  string
 	Out string
 }
-
+//type Data struct {
+//	Output    string
+//	ErrorNum  int
+//	ErrorText string
+//}
 func internalServerError(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusInternalServerError)
 	t, _ := template.ParseFiles("templates/500.html")
@@ -26,6 +29,7 @@ func internalServerError(w http.ResponseWriter, r *http.Request) {
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
+	//d := Data{}
 	if r.URL.Path == "/" {
 		switch r.Method {
 		case "GET":
@@ -47,7 +51,14 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 				output, status := ascii.AsciiOutput(r.Form["input"][0], r.Form["font"][0])
 				if status == 500 {
 					internalServerError(w, r)
-				} else {
+					//d.Output = output
+					//if r.FormValue("process") == "download" {
+					//	a := strings.NewReader(d.Output)
+					//	w.Header().Set("Content-Disposition", "attachment; filename=file.txt")
+					//	w.Header().Set("Content-Length", strconv.Itoa(len(d.Output)))
+					//	io.Copy(w, a)
+					//}
+				}else {
 					ex := Page{
 						In:  r.Form["input"][0],
 						Out: output,
@@ -73,7 +84,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 }
 func ValidAscii(s string) bool {
 	for _, i := range []byte(s) {
-		if i > 127 {
+		if !(i >= 32 && i <= 126) {
 			return false
 		}
 	}
@@ -81,6 +92,7 @@ func ValidAscii(s string) bool {
 }
 
 func main() {
+	http.HandleFunc("/favicon.ico", faviconHandler)
 	http.HandleFunc("/", Handler)
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets/"))))
 	fmt.Println("Listening at localhost:6969\nHttp Status :", http.StatusOK )
@@ -99,4 +111,8 @@ func openbrowser(zz string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func faviconHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "assets/css/img/favicon.ico")
 }
