@@ -11,6 +11,8 @@ func Openbrowser(zz string) {
 	switch runtime.GOOS {
 	case "windows":
 		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", zz).Start()
+
+	case "linux":
 	}
 	if err != nil {
 		log.Fatal(err)

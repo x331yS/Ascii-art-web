@@ -45,10 +45,10 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 						return
 					}
 					_ = t.Execute(w, ex)
-					//a := strings.NewReader(d.Output)
-					//res.Header().Set("Content-Disposition", "attachment; filename=file.txt")
-					//res.Header().Set("Content-Length", strconv.Itoa(len(d.Output)))
-					//io.Copy(res, a)
+					//a := strings.NewReader(ex.Out)
+					//w.Header().Set("Content-Disposition", "attachment; filename=file.txt")
+					//w.Header().Set("Content-Length", strconv.Itoa(len(ex.Out)))
+					//io.Copy(w, a)
 					_ = os.Remove("assets/output/output.txt")
 					file, err := os.OpenFile("assets/output/output.txt", os.O_CREATE, 0600)
 					_, _ = file.WriteString(output)
