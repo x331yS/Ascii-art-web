@@ -95,7 +95,7 @@ h1 {
 .font-select {
     grid-area: font;
     font-size: 16px;
-    box-shadow: 0 13px 10px 0 rgba(0,0,0);
+    box-shadow: 0 13px 10px 0 black;
     width: 150px;
     height: 50px;
     font-weight: 700;
@@ -108,7 +108,7 @@ h1 {
 .btn {
     grid-area: btn;
     font-size: 16px;
-    box-shadow: 0 13px 10px 0 rgba(0,0,0);
+    box-shadow: 0 13px 10px 0 black;
     width: 150px;
     height: 50px;
     font-weight: 700;
@@ -127,7 +127,7 @@ h1 {
     border: 3px outset black;
     padding: 15px;
     margin-top: 15px;
-    box-shadow: 0 1px 10px 0 rgba(0,0,0);
+    box-shadow: 0 1px 10px 0 black;
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     transition: box-shadow .5s;
 }

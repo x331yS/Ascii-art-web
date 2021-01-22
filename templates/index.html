@@ -27,13 +27,14 @@
             <textarea class="input" name="input" cols="40" rows="5" placeholder="Type your text here" required>{{.In}}</textarea>
         </form>
     </article>
-    <button type="submit" id="download" name="process" class="btn btn-outline-danger" value="download">Download</button>
-       <!-- <label>Download</label><br>-->
+    <a  href="../assets/output/output.txt" download class="btn btn-outline-danger">Download</a>
+    <!-- <label>Download</label><br>-->
     <article class="form-output">
         <section class="out">
             <pre class="output">{{.Out}}</pre>
         </section>
     </article>
+
 
     <footer class="footer">
         <p>&copy;
@@ -43,8 +44,11 @@
             <a href="https://github.com/theomoigne" target="blank">Théo</a>
             <br>
             <a href="https://github.com/tmadu1360" target="blank">Thomas</a>
+
         </p>
+        <!--<a href="../assets/css/output.txt" ><button class="btn btn-outline-danger"> Download</button></a>-->
     </footer>
+
 </main>
 </body>
 
