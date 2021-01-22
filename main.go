@@ -15,9 +15,8 @@ type Page struct {
 	Out string
 }
 //type Data struct {
-//	Output    string
-//	ErrorNum  int
-//	ErrorText string
+//	Out    string
+//
 //}
 func internalServerError(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusInternalServerError)
@@ -51,13 +50,13 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 				output, status := ascii.AsciiOutput(r.Form["input"][0], r.Form["font"][0])
 				if status == 500 {
 					internalServerError(w, r)
-					//d.Output = output
-					//if r.FormValue("process") == "download" {
-					//	a := strings.NewReader(d.Output)
-					//	w.Header().Set("Content-Disposition", "attachment; filename=file.txt")
-					//	w.Header().Set("Content-Length", strconv.Itoa(len(d.Output)))
-					//	io.Copy(w, a)
-					//}
+					//d.Out = output
+				//}
+				//if r.FormValue("process") == "download" {
+				//	a := strings.NewReader(d.Out)
+				//	w.Header().Set("Content-Disposition", "attachment; filename=file.txt")
+				//	w.Header().Set("Content-Length", strconv.Itoa(len(d.Out)))
+				//	io.Copy(w, a)
 				}else {
 					ex := Page{
 						In:  r.Form["input"][0],
@@ -84,7 +83,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 }
 func ValidAscii(s string) bool {
 	for _, i := range []byte(s) {
-		if !(i >= 32 && i <= 126) {
+		if i > 127 {
 			return false
 		}
 	}
@@ -116,3 +115,74 @@ func openbrowser(zz string) {
 func faviconHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "assets/css/img/favicon.ico")
 }
+
+// Data is a struct that will be sent as a respond
+//type Data struct {
+//	Output    string
+//	ErrorNum  int
+//	ErrorText string
+//}
+//
+//var temp *template.Template
+//func main() {
+//	http.HandleFunc("/", serverHandler)
+//	// Creating a handler for handling static files
+//	FileServer := http.FileServer(http.Dir("docs"))
+//	http.Handle("/docs/", http.StripPrefix("/docs/", FileServer))
+//	fmt.Println("Server is listening to port #8080 ... ")
+//	http.ListenAndServe(":8080", nil)
+//}
+//
+//func serverHandler(res http.ResponseWriter, req *http.Request) {
+//	d := Data{}
+//	temp = template.Must(template.ParseGlob("docs/htmlTemplates/*.html"))
+//
+//	if req.URL.Path != "/" {
+//		d.ErrorNum = 404
+//		d.ErrorText = "Page Not Found"
+//		errorHandler(res, req, &d) // 404 ERROR
+//		return
+//	}
+//
+//	if req.Method == "GET" {
+//		temp.ExecuteTemplate(res, "index.html", d)
+//
+//	} else if req.Method == "POST" {
+//		// Gathering information to be processed
+//		text := req.FormValue("input")
+//		font := req.FormValue("font")
+//
+//		out, err := ascii.AsciiOutput(text, font)
+//		if err {
+//			d.ErrorNum = 500
+//			d.ErrorText = "Internal Server Error"
+//			errorHandler(res, req, &d)
+//			return
+//		}
+//		d.Output = out
+//
+//		if req.FormValue("process") == "show" {
+//			temp.ExecuteTemplate(res, "index.html", d)
+//		} else if req.FormValue("process") == "download" {
+//			a := strings.NewReader(d.Output)
+//			res.Header().Set("Content-Disposition", "attachment; filename=file.txt")
+//			res.Header().Set("Content-Length", strconv.Itoa(len(d.Output)))
+//			io.Copy(res, a)
+//		} else {
+//			d.ErrorNum = 400
+//			d.ErrorText = "Bad Request"
+//			errorHandler(res, req, &d)
+//			return
+//		}
+//	} else {
+//		d.ErrorNum = 400
+//		d.ErrorText = "Bad Request"
+//		errorHandler(res, req, &d)
+//		return
+//	}
+//}
+//
+//func errorHandler(res http.ResponseWriter, req *http.Request, d *Data) {
+//	res.WriteHeader(d.ErrorNum)
+//	temp.ExecuteTemplate(res, "error.html", d)
+//}
