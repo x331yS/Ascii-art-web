@@ -13,6 +13,7 @@ func Openbrowser(zz string) {
 		err = exec.Command("rundll32", "url.dll,FileProtocolHandler", zz).Start()
 
 	case "linux":
+		err = exec.Command("xdg-open", zz).Start()
 	}
 	if err != nil {
 		log.Fatal(err)
