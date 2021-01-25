@@ -17,15 +17,17 @@
 }
 
 body {
-    background-image: linear-gradient(60deg,rgba(255,9,59,.5), rgba(18,194,233,.5), rgba(246,79,89,.5)), url('img/bg.jpg') ;
 
+    background-image: linear-gradient(60deg,rgba(255,9,59,.5), rgba(18,194,233,.5), rgba(246,79,89,.5)), url('img/bg.jpg');
+    max-top: 50%;
 }
+
 h1 {
     font-family: 'milkshakeregular', sans-serif;
     font-size: 100px;
     margin: 0;
     font-weight: 900;
-    position: absolute;
+    position: relative;
     left: 50%;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -39,8 +41,8 @@ h1 {
 
 
 .main {
-    min-height: 100vh;
-    width: 1024px;
+    min-height: 1200px;
+    width: 1054px;
     margin: 0 auto;
     font-family: 'Raleway', sans-serif;
 }
@@ -64,14 +66,15 @@ h1 {
 }
 
 .footer {
-    grid-area: footer;
-    padding: 35px;
+    position: relative;
+    top: 650px;
+    left: -1100px;
+    height: 200px;
     font-size: 15px;
-    position: fixed;
-    bottom: 0;
     color: whitesmoke;
 }
 .footer a {
+
     text-decoration: none;
     transition: color .5s;
     color: whitesmoke;
@@ -88,7 +91,7 @@ h1 {
         "header header header header"
         ". form form ."
         ". output output ."
-        "footer footer footer footer";
+ ;
         justify-items: center;
 }
 
@@ -148,4 +151,10 @@ h1 {
     position: absolute;
     bottom: 0;
     margin: 50px;
+}
+
+.btndw {
+    position: relative;
+    top: 680px;
+    left: 1000px;
 }
