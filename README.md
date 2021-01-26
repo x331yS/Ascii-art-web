@@ -1,11 +1,18 @@
 # ascii-art-web
 
  ## Presentation du projets:
- /ascii-art est un programme qui prend une chaine de caractère commme argument=elle renvoi part la suite une représentation graphiques des caractères donées/accii-art web est la continuter de accii-art elle a pour but de permettre la utilisation en ligne du programe de base (chaine de caractère=représentation graphique).
- ```
+ ascii-art is a program that takes a character string as argument; it returns a graphical representation of the given characters, asccii-art web is the continue from asccii-art is intended to allow the online use of the basic program and these extensions (string=graphic representation) on web
+```
 Le projets a été fait collectivement sur git. 
-````
-> Florian Lejosne, Théo Moigne, Thomas Marty
-
-## Comment utiliser Acii-art web: 
+```
+> Florian Lejosne
+```
+Théo Moigne
+```
+Thomas Marty
+```
+<br>
+<img src="./assets/css/img/Capture.PNG> <br>
+## Acii-art :
+There are also four different fonts you can use : "Standard", "Shadow", "Thinkertoy" and "DOOM".
 
