@@ -15,5 +15,13 @@ Le projets a été fait collectivement sur git.
 <img src="./assets/css/img/Capture.PNG" width=65% /> </br>
 
 ## Acii-art :
-There are also four different fonts you can use : "Standard", "Shadow", "Thinkertoy" and "DOOM".
+-There are also four different fonts you can use : "Standard", "Shadow", "Thinkertoy" and "DOOM".
 
+-error management:
+```
+-400: Bad Request
+-404: Page Not Found, File Not Found
+-500: Internal Server Error
+```
+<br>
+<img src="./assets/css/img/Capture01.PNG" width=65% /> </br>
