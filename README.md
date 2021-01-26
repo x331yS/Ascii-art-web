@@ -9,10 +9,10 @@ Le projets a été fait collectivement sur git.
 
 -Théo Moigne
 
--Thomas Marty
+-Thomas Marty 
 
 <br>
-<img src="./assets/css/img/Capture.PNG> <br>
+<img src="./assets/css/img/Capture.PNG" width=65% /> </br>
 
 ## Acii-art :
 There are also four different fonts you can use : "Standard", "Shadow", "Thinkertoy" and "DOOM".
