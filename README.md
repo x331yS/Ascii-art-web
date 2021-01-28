@@ -7,7 +7,7 @@
  ```
  git clone https://github.com/x33lyS/ascii-art-web.git
  
-  go build main.go
+ go build main.go
  ```
  Click on the new main.exe
  
