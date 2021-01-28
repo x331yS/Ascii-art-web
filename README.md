@@ -9,7 +9,7 @@
  
   go build main.go
  ```
- click on the new main.exe
+ Click on the new main.exe
  
 <br>
 <img src="./assets/css/img/Capture.PNG" width=65% /> </br>
