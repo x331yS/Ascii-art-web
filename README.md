@@ -11,22 +11,15 @@
  ```
  click on the new main.exe
  
-
-The project was done collectively on git.
-
--Florian Lejosne
-
--Théo Moigne
-
--Thomas Marty 
-
 <br>
 <img src="./assets/css/img/Capture.PNG" width=65% /> </br>
 
 ## Acii-art :
 -There are also four different fonts you can use : "Standard", "Shadow", "Thinkertoy" and "DOOM".
 
--error management:
+-
+
+-Errors management:
 ```
 -400: Bad Request
 -404: Page Not Found, File Not Found
@@ -34,3 +27,13 @@ The project was done collectively on git.
 ```
 <br>
 <img src="./assets/css/img/Capture01.PNG" width=65% /> </br>
+
+##The project was done collectively on git.
+
+```
+-Florian Lejosne
+
+-Théo Moigne
+
+-Thomas Marty 
+```
