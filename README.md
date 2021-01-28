@@ -14,10 +14,8 @@
 <br>
 <img src="./assets/css/img/Capture.PNG" width=65% /> </br>
 
-## Acii-art :
--There are also four different fonts you can use : "Standard", "Shadow", "Thinkertoy" and "DOOM".
-
--
+## Ascii-art-web :
+-There are four differents fonts you can use : "Standard", "Shadow", "Thinkertoy" and "Doom".
 
 -Errors management:
 ```
@@ -28,7 +26,7 @@
 <br>
 <img src="./assets/css/img/Capture01.PNG" width=65% /> </br>
 
-##The project was done collectively on git.
+## The project was done collectively on git.
 
 ```
 -Florian Lejosne
