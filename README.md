@@ -1,4 +1,4 @@
-# ascii-art-web
+# Ascii-Art-Web
 
  ## Presentation of the projects:
  ascii-art is a program that takes a character string as argument; it returns a graphical representation of the given characters, asccii-art web is the continue from asccii-art is intended to allow the online use of the basic program and these extensions (string=graphic representation) on web
