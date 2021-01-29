@@ -45,10 +45,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 						return
 					}
 					_ = t.Execute(w, ex)
-					//a := strings.NewReader(ex.Out)
-					//w.Header().Set("Content-Disposition", "attachment; filename=output.txt")
-					//w.Header().Set("Content-Length", strconv.Itoa(len(ex.Out)))
-					//io.Copy(w, a)
 					_ = os.Remove("assets/output/output.txt")
 					file, err := os.OpenFile("assets/output/output.txt", os.O_CREATE, 0600)
 					_, _ = file.WriteString(output)
@@ -64,43 +60,3 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	}
 }
-
-//func Handler(w http.ResponseWriter, r *http.Request) {
-//	if r.URL.Path != "/" {
-//		StatusNotFound(w ,r)
-//	}
-//	switch r.Method {
-//
-//	case "GET":
-//		var t, _ = template.ParseFiles("templates/index.html")
-//		t.Execute(w, nil)
-//
-//	case "POST":
-//
-//		var text = r.FormValue("text")
-//		var banner = r.FormValue("banner")
-//
-//		if ValidAscii(text) == true {
-//
-//			page = Page{
-//				In:   text,
-//				Out: Ascii(text, banner),
-//			}
-//
-//			var t, _ = template.ParseFiles("templates/index.html")
-//			t.Execute(w, page)
-//
-//			var output = strings.NewReader(page.Out)
-//			w.Header().Set("Content-Disposition", "attachment; filename=file.txt")
-//			w.Header().Set("Content-Length", strconv.Itoa(len(page.Out)))
-//			io.Copy(w, output)
-//		}
-//		if ValidAscii(text) == false {
-//			BadRequest(w, r)
-//			return
-//
-//		} else {
-//			InternalServerError(w, r)
-//		}
-//	}
-//}
